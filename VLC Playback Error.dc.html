@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="./assets/aio-favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; background: oklch(0.17 0.015 265); }
+  a { color: oklch(0.72 0.13 275); }
+  a:hover { color: oklch(0.8 0.13 275); }
+</style>
+</helmet>
+
+<div style="font-family: 'Inter', Helvetica, Arial, sans-serif; background: oklch(0.17 0.015 265); min-height: 100vh; color: oklch(0.96 0.005 265);">
+  <dc-import name="NavBar" active="troubleshooting" hint-size="100%,76px"></dc-import>
+
+  <main style="max-width: 760px; margin: 0 auto; padding: 48px 24px 88px;">
+    <div style="font-size: 13px; color: oklch(0.6 0.01 265); margin-bottom: 20px;">
+      <a href="./AIO Help Centre.dc.html" style="text-decoration: none;">All Categories</a> / <a href="./Troubleshooting & Fixes.dc.html" style="text-decoration: none;">Troubleshoot & FAQs</a> / VLC Playback Error
+    </div>
+
+    <h1 style="font-family: 'Sora', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 12px;">VLC Player Playback Fix</h1>
+    <p style="font-size: 16px; color: oklch(0.7 0.01 265); margin: 0 0 32px; line-height: 1.6;">Improve movie and series playback by installing VLC Player and adjusting AIO TV settings.</p>
+
+    <p style="font-size: 15px; line-height: 1.7; color: oklch(0.85 0.005 265); margin: 0 0 16px;">If you are seeing buffering, freezing, or stuttering during Movies &amp; Series playback, using VLC as an external player can improve playback on some Firesticks.</p>
+    <p style="font-size: 15px; line-height: 1.7; color: oklch(0.85 0.005 265); margin: 0 0 32px;">This guide shows you how to install VLC, then select it inside AIO TV.</p>
+
+    <h2 style="font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 600; margin: 0 0 12px;">What is VLC Player?</h2>
+    <p style="font-size: 15px; line-height: 1.7; color: oklch(0.85 0.005 265); margin: 0 0 32px;">VLC is a free media player that supports a wide range of video formats. When AIO TV uses VLC for playback, it can sometimes run more smoothly than the default player.</p>
+
+    <h2 style="font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 600; margin: 0 0 12px;">Before you start</h2>
+    <ul style="margin: 0 0 32px; padding-left: 22px; font-size: 15px; line-height: 1.9; color: oklch(0.85 0.005 265);">
+      <li>This is recommended for <strong>Movies</strong> and <strong>Series</strong> only.</li>
+      <li><strong>Do not</strong> set <strong>Live TV</strong> to VLC.</li>
+    </ul>
+
+    <h2 style="font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 600; margin: 0 0 12px;">Quick instructions</h2>
+    <ol style="margin: 0 0 40px; padding-left: 22px; font-size: 15px; line-height: 1.9; color: oklch(0.85 0.005 265);">
+      <li>Install <strong>VLC</strong> from the Amazon Appstore.</li>
+      <li>In <strong>AIO TV</strong>, open <strong>Settings</strong>.</li>
+      <li>Go to <strong>External Players</strong> and add <strong>VLC</strong>.</li>
+      <li>Go to <strong>Player Selection</strong> and set <strong>Movies</strong> and <strong>Series</strong> to <strong>VLC</strong>.</li>
+    </ol>
+
+    <h2 style="font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 600; margin: 0 0 32px;">Step-by-step (screenshots)</h2>
+
+    <div style="margin-bottom: 36px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <div style="width: 28px; height: 28px; border-radius: 8px; background: oklch(0.28 0.03 275); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: oklch(0.9 0.005 265); flex-shrink: 0;">1</div>
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; margin: 0;">Step 1</h3>
+      </div>
+      <p style="font-size: 15px; line-height: 1.7; color: oklch(0.85 0.005 265); margin: 0 0 16px; padding-left: 40px;">From your Firestick home screen, open <strong>Search</strong>.</p>
+      <image-slot id="vlc-step-1" src="./assets/vlc-step-1.png" placeholder="Step 1 screenshot" shape="rounded" fit="contain" style="display: block; width: calc(100% - 40px); aspect-ratio: 16 / 9; margin-left: 40px; box-shadow: 0 8px 24px oklch(0.05 0.02 265 / 0.4);"></image-slot>
+    </div>
+    <div style="margin-bottom: 36px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <div style="width: 28px; height: 28px; border-radius: 8px; background: oklch(0.28 0.03 275); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: oklch(0.9 0.005 265); flex-shrink: 0;">2</div>
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; margin: 0;">Step 2</h3>
+      </div>
+      <p style="font-size: 15px; line-height: 1.7; color: oklch(0.85 0.005 265); margin: 0 0 16px; padding-left: 40px;">Search for <strong>VLC</strong>, then select it.</p>
+      <image-slot id="vlc-step-2" src="./assets/vlc-step-2.png" placeholder="Step 2 screenshot" shape="rounded" fit="contain" style="display: block; width: calc(100% - 40px); aspect-ratio: 16 / 9; margin-left: 40px; box-shadow: 0 8px 24px oklch(0.05 0.02 265 / 0.4);"></image-slot>
+    </div>
+    <div style="margin-bottom: 36px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <div style="width: 28px; height: 28px; border-radius: 8px; background: oklch(0.28 0.03 275); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: oklch(0.9 0.005 265); flex-shrink: 0;">3</div>
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; margin: 0;">Step 3</h3>
+      </div>
+      <p style="font-size: 15px; line-height: 1.7; color: oklch(0.85 0.005 265); margin: 0 0 16px; padding-left: 40px;">Select VLC in the results.</p>
+      <image-slot id="vlc-step-3" src="./assets/vlc-step-3.png" placeholder="Step 3 screenshot" shape="rounded" fit="contain" style="display: block; width: calc(100% - 40px); aspect-ratio: 16 / 9; margin-left: 40px; box-shadow: 0 8px 24px oklch(0.05 0.02 265 / 0.4);"></image-slot>
+    </div>
+    <div style="margin-bottom: 36px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <div style="width: 28px; height: 28px; border-radius: 8px; background: oklch(0.28 0.03 275); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: oklch(0.9 0.005 265); flex-shrink: 0;">4</div>
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; margin: 0;">Step 4</h3>
+      </div>
+      <p style="font-size: 15px; line-height: 1.7; color: oklch(0.85 0.005 265); margin: 0 0 16px; padding-left: 40px;">Select <strong>Get</strong> or <strong>Download</strong> to install.</p>
+      <image-slot id="vlc-step-4" src="./assets/vlc-step-4.png" placeholder="Step 4 screenshot" shape="rounded" fit="contain" style="display: block; width: calc(100% - 40px); aspect-ratio: 16 / 9; margin-left: 40px; box-shadow: 0 8px 24px oklch(0.05 0.02 265 / 0.4);"></image-slot>
+    </div>
+    <div style="margin-bottom: 36px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <div style="width: 28px; height: 28px; border-radius: 8px; background: oklch(0.28 0.03 275); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: oklch(0.9 0.005 265); flex-shrink: 0;">5</div>
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; margin: 0;">Step 5</h3>
+      </div>
+      <p style="font-size: 15px; line-height: 1.7; color: oklch(0.85 0.005 265); margin: 0 0 16px; padding-left: 40px;">Open <strong>AIO TV</strong>, then select the <strong>profile icon</strong> (top-right).</p>
+      <image-slot id="vlc-step-5" src="./assets/vlc-step-5.png" placeholder="Step 5 screenshot" shape="rounded" fit="contain" style="display: block; width: calc(100% - 40px); aspect-ratio: 16 / 9; margin-left: 40px; box-shadow: 0 8px 24px oklch(0.05 0.02 265 / 0.4);"></image-slot>
+    </div>
+    <div style="margin-bottom: 36px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <div style="width: 28px; height: 28px; border-radius: 8px; background: oklch(0.28 0.03 275); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: oklch(0.9 0.005 265); flex-shrink: 0;">6</div>
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; margin: 0;">Step 6</h3>
+      </div>
+      <p style="font-size: 15px; line-height: 1.7; color: oklch(0.85 0.005 265); margin: 0 0 16px; padding-left: 40px;">Select <strong>Settings</strong>.</p>
+      <image-slot id="vlc-step-6" src="./assets/vlc-step-6.png" placeholder="Step 6 screenshot" shape="rounded" fit="contain" style="display: block; width: calc(100% - 40px); aspect-ratio: 16 / 9; margin-left: 40px; box-shadow: 0 8px 24px oklch(0.05 0.02 265 / 0.4);"></image-slot>
+    </div>
+    <div style="margin-bottom: 36px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <div style="width: 28px; height: 28px; border-radius: 8px; background: oklch(0.28 0.03 275); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: oklch(0.9 0.005 265); flex-shrink: 0;">7</div>
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; margin: 0;">Step 7</h3>
+      </div>
+      <p style="font-size: 15px; line-height: 1.7; color: oklch(0.85 0.005 265); margin: 0 0 16px; padding-left: 40px;">Select <strong>External Players</strong>.</p>
+      <image-slot id="vlc-step-7" src="./assets/vlc-step-7.png" placeholder="Step 7 screenshot" shape="rounded" fit="contain" style="display: block; width: calc(100% - 40px); aspect-ratio: 16 / 9; margin-left: 40px; box-shadow: 0 8px 24px oklch(0.05 0.02 265 / 0.4);"></image-slot>
+    </div>
+    <div style="margin-bottom: 36px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <div style="width: 28px; height: 28px; border-radius: 8px; background: oklch(0.28 0.03 275); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: oklch(0.9 0.005 265); flex-shrink: 0;">8</div>
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; margin: 0;">Step 8</h3>
+      </div>
+      <p style="font-size: 15px; line-height: 1.7; color: oklch(0.85 0.005 265); margin: 0 0 16px; padding-left: 40px;">Select <strong>ADD PLAYER</strong>.</p>
+      <image-slot id="vlc-step-8" src="./assets/vlc-step-8.png" placeholder="Step 8 screenshot" shape="rounded" fit="contain" style="display: block; width: calc(100% - 40px); aspect-ratio: 16 / 9; margin-left: 40px; box-shadow: 0 8px 24px oklch(0.05 0.02 265 / 0.4);"></image-slot>
+    </div>
+    <div style="margin-bottom: 36px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <div style="width: 28px; height: 28px; border-radius: 8px; background: oklch(0.28 0.03 275); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: oklch(0.9 0.005 265); flex-shrink: 0;">9</div>
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; margin: 0;">Step 9</h3>
+      </div>
+      <p style="font-size: 15px; line-height: 1.7; color: oklch(0.85 0.005 265); margin: 0 0 16px; padding-left: 40px;">Select <strong>VLC</strong>.</p>
+      <image-slot id="vlc-step-9" src="./assets/vlc-step-9.png" placeholder="Step 9 screenshot" shape="rounded" fit="contain" style="display: block; width: calc(100% - 40px); aspect-ratio: 16 / 9; margin-left: 40px; box-shadow: 0 8px 24px oklch(0.05 0.02 265 / 0.4);"></image-slot>
+    </div>
+    <div style="margin-bottom: 36px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <div style="width: 28px; height: 28px; border-radius: 8px; background: oklch(0.28 0.03 275); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: oklch(0.9 0.005 265); flex-shrink: 0;">10</div>
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; margin: 0;">Step 10</h3>
+      </div>
+      <p style="font-size: 15px; line-height: 1.7; color: oklch(0.85 0.005 265); margin: 0 0 16px; padding-left: 40px;">Select <strong>ADD</strong>.</p>
+      <image-slot id="vlc-step-10" src="./assets/vlc-step-10.png" placeholder="Step 10 screenshot" shape="rounded" fit="contain" style="display: block; width: calc(100% - 40px); aspect-ratio: 16 / 9; margin-left: 40px; box-shadow: 0 8px 24px oklch(0.05 0.02 265 / 0.4);"></image-slot>
+    </div>
+    <div style="margin-bottom: 36px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <div style="width: 28px; height: 28px; border-radius: 8px; background: oklch(0.28 0.03 275); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: oklch(0.9 0.005 265); flex-shrink: 0;">11</div>
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; margin: 0;">Step 11</h3>
+      </div>
+      <p style="font-size: 15px; line-height: 1.7; color: oklch(0.85 0.005 265); margin: 0 0 16px; padding-left: 40px;">Confirm <strong>VLC</strong> is listed under <strong>External Players</strong>.</p>
+      <image-slot id="vlc-step-11" src="./assets/vlc-step-11.png" placeholder="Step 11 screenshot" shape="rounded" fit="contain" style="display: block; width: calc(100% - 40px); aspect-ratio: 16 / 9; margin-left: 40px; box-shadow: 0 8px 24px oklch(0.05 0.02 265 / 0.4);"></image-slot>
+    </div>
+    <div style="margin-bottom: 36px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <div style="width: 28px; height: 28px; border-radius: 8px; background: oklch(0.28 0.03 275); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: oklch(0.9 0.005 265); flex-shrink: 0;">12</div>
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; margin: 0;">Step 12</h3>
+      </div>
+      <p style="font-size: 15px; line-height: 1.7; color: oklch(0.85 0.005 265); margin: 0 0 16px; padding-left: 40px;">Open <strong>Player Selection</strong>.</p>
+      <image-slot id="vlc-step-12" src="./assets/vlc-step-12.png" placeholder="Step 12 screenshot" shape="rounded" fit="contain" style="display: block; width: calc(100% - 40px); aspect-ratio: 16 / 9; margin-left: 40px; box-shadow: 0 8px 24px oklch(0.05 0.02 265 / 0.4);"></image-slot>
+    </div>
+    <div style="margin-bottom: 36px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <div style="width: 28px; height: 28px; border-radius: 8px; background: oklch(0.28 0.03 275); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: oklch(0.9 0.005 265); flex-shrink: 0;">13</div>
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; margin: 0;">Step 13</h3>
+      </div>
+      <p style="font-size: 15px; line-height: 1.7; color: oklch(0.85 0.005 265); margin: 0 0 16px; padding-left: 40px;">Set <strong>Movies</strong> to <strong>VLC</strong>.</p>
+      <image-slot id="vlc-step-13" src="./assets/vlc-step-13.png" placeholder="Step 13 screenshot" shape="rounded" fit="contain" style="display: block; width: calc(100% - 40px); aspect-ratio: 16 / 9; margin-left: 40px; box-shadow: 0 8px 24px oklch(0.05 0.02 265 / 0.4);"></image-slot>
+    </div>
+    <div style="margin-bottom: 36px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <div style="width: 28px; height: 28px; border-radius: 8px; background: oklch(0.28 0.03 275); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: oklch(0.9 0.005 265); flex-shrink: 0;">14</div>
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; margin: 0;">Step 14</h3>
+      </div>
+      <p style="font-size: 15px; line-height: 1.7; color: oklch(0.85 0.005 265); margin: 0 0 16px; padding-left: 40px;">Make sure <strong>Movies &amp; Series</strong> show <strong>VLC</strong>.<br><strong>Do not</strong> set <strong>Live TV</strong> to VLC.</p>
+      <image-slot id="vlc-step-14" src="./assets/vlc-step-14.png" placeholder="Step 14 screenshot" shape="rounded" fit="contain" style="display: block; width: calc(100% - 40px); aspect-ratio: 16 / 9; margin-left: 40px; box-shadow: 0 8px 24px oklch(0.05 0.02 265 / 0.4);"></image-slot>
+    </div>
+
+    <h2 style="font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 600; margin: 32px 0 12px;">Final check</h2>
+    <ul style="margin: 0 0 16px; padding-left: 22px; font-size: 15px; line-height: 1.9; color: oklch(0.85 0.005 265);">
+      <li>Play a Movie or Series and confirm VLC opens.</li>
+      <li>If VLC does not open, go back to <strong>Player Selection</strong> and confirm <strong>Movies</strong> and <strong>Series</strong> are set to <strong>VLC</strong>.</li>
+      <li>If playback is still poor, restart your Firestick and try again.</li>
+    </ul>
+    <p style="font-size: 15px; line-height: 1.7; color: oklch(0.85 0.005 265); margin: 0 0 8px;">If you are still having problems after this, please contact support with:</p>
+    <ul style="margin: 0; padding-left: 22px; font-size: 15px; line-height: 1.9; color: oklch(0.85 0.005 265);">
+      <li>The title you were trying to play</li>
+      <li>Whether VLC opened or not</li>
+      <li>What happened on screen</li>
+    </ul>
+  </main>
+
+  <footer style="border-top: 1px solid oklch(0.28 0.015 265); padding: 48px 48px 32px; display: flex; flex-direction: column; gap: 36px; font-size: 13px; color: oklch(0.6 0.01 265);">
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 28px; max-width: 1080px; margin: 0 auto; width: 100%;">
+      <div>
+        <a href="./Firestick Setup.dc.html" style="display: block; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; color: oklch(0.9 0.005 265); margin-bottom: 14px;">Setup</a>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="./Before You Begin.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Before You Begin</a>
+          <a href="./Setting Up Your Firestick.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Setting Up Your Firestick</a>
+          <a href="./Installing Downloader.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Installing Downloader</a>
+          <a href="./Enabling Developer Options.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Enabling Developer Options</a>
+        </div>
+      </div>
+      <div>
+        <a href="./App Installation Guides.dc.html" style="display: block; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; color: oklch(0.9 0.005 265); margin-bottom: 14px;">Installation</a>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="./Install AIO TV.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Install AIO TV</a>
+          <a href="./Install AIO TV Pro.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Install AIO TV Pro</a>
+          <a href="./Install AIO Stremio.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Install AIO Stremio</a>
+          <a href="./Installing VPN.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Installing VPN</a>
+          <a href="./Install Android App.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Install Android App</a>
+          <a href="./Install Apple App.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Install Apple App</a>
+        </div>
+      </div>
+      <div>
+        <a href="./VPN Guides.dc.html" style="display: block; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; color: oklch(0.9 0.005 265); margin-bottom: 14px;">VPN</a>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+        </div>
+      </div>
+      <div>
+        <a href="./Rewards.dc.html" style="display: block; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; color: oklch(0.9 0.005 265); margin-bottom: 14px;">Rewards</a>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="./Packages.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Packages</a>
+        </div>
+      </div>
+      <div>
+        <a href="./Troubleshooting & Fixes.dc.html" style="display: block; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; color: oklch(0.9 0.005 265); margin-bottom: 14px;">Troubleshoot & FAQs</a>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="./Account Expired.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Account Expired</a>
+          <a href="./VLC Playback Error.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">VLC Playback Error</a>
+          <a href="./TV Guide EPG not Downloaded.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">TV Guide (EPG) not Downloaded</a>
+          <a href="./Force Stop Clear Cache.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Force Stop & Clear Cache</a>
+          <a href="./Buffering Issues.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Buffering Issues</a>
+        </div>
+      </div>
+    </div>
+    <span style="text-align: center;">© 2026 AIO Media</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script></script>
+</body>
+</html>

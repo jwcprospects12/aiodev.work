@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<nav style="display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 16px; padding: 18px 32px; border-bottom: 1px solid oklch(0.28 0.015 265); position: sticky; top: 0; background: oklch(0.17 0.015 265 / 0.9); backdrop-filter: blur(8px); z-index: 20; font-family: 'Inter', Helvetica, Arial, sans-serif;">
+  <a href="./AIO Help Centre.dc.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; flex-shrink: 0; justify-self: start;">
+<img src="./assets/aio-media-icon.png" alt="AIO Media" style="width: 56px; height: 56px; object-fit: contain;">
+    <span style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px; letter-spacing: -0.01em; white-space: nowrap;">Help Centre</span>
+  </a>
+  <div style="display: flex; align-items: center; justify-content: center; gap: 8px; overflow: visible;">
+    <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="4">
+      <div style="position: relative; flex-shrink: 0;" onMouseEnter="{{ item.onEnter }}" onMouseLeave="{{ item.onLeave }}">
+        <a href="{{ item.url }}" style="{{ item.linkStyle }}">
+          {{ item.label }}
+          <sc-if value="{{ item.hasGuides }}" hint-placeholder-val="{{ false }}">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="{{ item.chevronStyle }}"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </sc-if>
+        </a>
+        <sc-if value="{{ item.hasGuides }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ item.panelStyle }}">
+          <sc-for list="{{ item.guides }}" as="g" hint-placeholder-count="2">
+            <div style="position: relative;" onMouseEnter="{{ g.onEnter }}" onMouseLeave="{{ g.onLeave }}">
+              <a href="{{ g.url }}" style="{{ g.linkStyle }}">
+                <span>{{ g.title }}</span>
+                <sc-if value="{{ g.hasChildren }}" hint-placeholder-val="{{ false }}">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                </sc-if>
+              </a>
+              <sc-if value="{{ g.hasChildren }}" hint-placeholder-val="{{ false }}">
+                <div style="{{ g.childPanelStyle }}">
+                  <sc-for list="{{ g.children }}" as="c" hint-placeholder-count="3">
+                    <a href="{{ c.url }}" style="{{ childLinkStyle }}">{{ c.title }}</a>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+  <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0; justify-self: end;">
+    <div style="display: flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 8px; background: oklch(0.23 0.015 265); border: 1px solid oklch(0.3 0.015 265); font-size: 13px; color: oklch(0.65 0.01 265);">
+      <span>⌘K</span>
+    </div>
+    <a href="./Sign In.dc.html" style="text-decoration: none; padding: 8px 16px; border-radius: 8px; background: oklch(0.62 0.16 280); color: white; font-weight: 600; font-size: 13.5px; white-space: nowrap;">Sign in</a>
+  </div>
+</nav>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1200, &quot;height&quot;: 80}, &quot;active&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;home&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;home&quot;, &quot;firestick&quot;, &quot;install&quot;, &quot;vpn&quot;, &quot;rewards&quot;, &quot;troubleshooting&quot;]}}">
+class Component extends DCLogic {
+  state = { hovered: null, subHovered: null };
+
+  renderVals() {
+    const active = this.props.active ?? 'home';
+    const hovered = this.state.hovered;
+    const subHovered = this.state.subHovered;
+
+    const linkBase = {
+      display: 'flex', alignItems: 'center', gap: '5px', fontSize: '13.5px', fontWeight: 500, textDecoration: 'none',
+      whiteSpace: 'nowrap', padding: '8px 10px', borderBottom: '2px solid transparent', color: 'oklch(0.96 0.005 265)'
+    };
+    const linkActive = { ...linkBase, color: 'oklch(0.78 0.13 275)', borderBottom: '2px solid oklch(0.72 0.13 275)' };
+    const panelBase = {
+      position: 'absolute', top: '100%', left: '50%', minWidth: '230px', overflow: 'visible',
+      padding: '8px', borderRadius: '12px', background: 'oklch(0.21 0.015 265)', border: '1px solid oklch(0.3 0.015 265)',
+      boxShadow: '0 16px 36px oklch(0.05 0.02 265 / 0.5)', transition: 'opacity 0.15s, transform 0.15s'
+    };
+    const guideLinkBase = {
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', padding: '9px 12px',
+      borderRadius: '8px', fontSize: '13px', fontWeight: 500, textDecoration: 'none', color: 'oklch(0.9 0.005 265)'
+    };
+    const childPanelBase = {
+      position: 'absolute', top: '-8px', left: '100%', marginLeft: '4px', minWidth: '210px',
+      padding: '8px', borderRadius: '12px', background: 'oklch(0.23 0.015 275)', border: '1px solid oklch(0.32 0.02 275)',
+      boxShadow: '0 16px 36px oklch(0.05 0.02 265 / 0.5)', transition: 'opacity 0.15s, transform 0.15s'
+    };
+
+    const items = [
+      { key: 'firestick', label: 'Setup', url: './Firestick Setup.dc.html', guides: [
+        { title: 'Before You Begin: What You Need', url: './Before You Begin.dc.html' },
+        { title: 'Setting Up Your Firestick', url: './Setting Up Your Firestick.dc.html' },
+        { title: 'Installing Downloader', url: './Installing Downloader.dc.html' },
+        { title: 'Enabling Developer Options', url: './Enabling Developer Options.dc.html' },
+      ] },
+      { key: 'install', label: 'Installation', url: './App Installation Guides.dc.html', guides: [
+        { title: 'TV Apps', url: './App Installation Guides.dc.html', children: [
+          { title: 'Install AIO TV', url: './Install AIO TV.dc.html' },
+          { title: 'Install AIO TV Pro', url: './Install AIO TV Pro.dc.html' },
+          { title: 'Install AIO Stremio', url: './Install AIO Stremio.dc.html' },
+        ] },
+        { title: 'Mobile Apps', url: './App Installation Guides.dc.html', children: [
+          { title: 'Install Android App', url: './Install Android App.dc.html' },
+          { title: 'Install Apple App', url: './Install Apple App.dc.html' },
+        ] },
+        { title: 'Installing VPN', url: './Installing VPN.dc.html' },
+      ] },
+      { key: 'vpn', label: 'VPN', url: './VPN Guides.dc.html', guides: [] },
+      { key: 'rewards', label: 'Rewards', url: './Rewards.dc.html', guides: [
+        { title: 'Packages', url: './Packages.dc.html' },
+      ] },
+      { key: 'troubleshooting', label: 'Troubleshoot & FAQs', url: './Troubleshooting & Fixes.dc.html', guides: [
+        { title: 'Account Expired', url: './Account Expired.dc.html' },
+        { title: 'VLC Playback Error', url: './VLC Playback Error.dc.html' },
+        { title: 'TV Guide (EPG) not Downloaded', url: './TV Guide EPG not Downloaded.dc.html' },
+        { title: 'Force Stop & Clear Cache', url: './Force Stop Clear Cache.dc.html' },
+        { title: 'Buffering Issues', url: './Buffering Issues.dc.html' },
+      ] },
+    ];
+
+    return {
+      childLinkStyle: guideLinkBase,
+      navItems: items.map(it => ({
+        ...it,
+        hasGuides: it.guides.length > 0,
+        linkStyle: it.key === active ? linkActive : linkBase,
+        chevronStyle: { transition: 'transform 0.15s', transform: hovered === it.key ? 'rotate(180deg)' : 'rotate(0deg)' },
+        panelStyle: hovered === it.key
+          ? { ...panelBase, opacity: 1, pointerEvents: 'auto', transform: 'translateX(-50%) translateY(4px)' }
+          : { ...panelBase, opacity: 0, pointerEvents: 'none', transform: 'translateX(-50%) translateY(0px)' },
+        onEnter: () => this.setState({ hovered: it.key }),
+        onLeave: () => this.setState({ hovered: null, subHovered: null }),
+        guides: it.guides.map(g => {
+          const subKey = it.key + '|' + g.title;
+          const hasChildren = !!g.children;
+          return {
+            ...g,
+            hasChildren,
+            linkStyle: guideLinkBase,
+            onEnter: hasChildren ? (() => this.setState({ subHovered: subKey })) : undefined,
+            onLeave: hasChildren ? (() => this.setState({ subHovered: null })) : undefined,
+            childPanelStyle: subHovered === subKey
+              ? { ...childPanelBase, opacity: 1, pointerEvents: 'auto' }
+              : { ...childPanelBase, opacity: 0, pointerEvents: 'none' },
+          };
+        }),
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>

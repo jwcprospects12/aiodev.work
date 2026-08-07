@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="./assets/aio-favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: oklch(0.17 0.015 265); }
+  a { color: oklch(0.72 0.13 275); }
+  a:hover { color: oklch(0.8 0.13 275); }
+</style>
+</helmet>
+
+<div style="font-family: 'Inter', Helvetica, Arial, sans-serif; background: oklch(0.17 0.015 265); min-height: 100vh; color: oklch(0.96 0.005 265);">
+  <dc-import name="NavBar" active="firestick" hint-size="100%,76px"></dc-import>
+
+  <main style="max-width: 1080px; margin: 0 auto; padding: 48px 24px 80px;">
+    <div style="font-size: 13px; color: oklch(0.6 0.01 265); margin-bottom: 20px;">
+      <a href="./AIO Help Centre.dc.html" style="text-decoration: none;">All Categories</a> / Setup
+    </div>
+
+    <div style="display: flex; align-items: flex-start; gap: 18px; margin-bottom: 40px;">
+      <div style="font-size: 40px; line-height: 1;">🚀</div>
+      <div>
+        <h1 style="font-family: 'Sora', sans-serif; font-size: 32px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 8px;">Setup</h1>
+        <p style="font-size: 15px; color: oklch(0.7 0.01 265); margin: 0; line-height: 1.5;">Step-by-step guides to prepare and configure your Amazon Firestick or Android TV device</p>
+      </div>
+    </div>
+
+    <div style="{{ gridStyle }}">
+      <sc-for list="{{ guides }}" as="guide" hint-placeholder-count="4">
+        <a href="{{ guide.url }}" style="text-decoration: none; color: inherit; display: block;">
+          <div style="height: 100%; display: flex; flex-direction: column; gap: 16px; padding: 28px; border-radius: 20px; background: oklch(0.21 0.015 265); border: 1px solid oklch(0.28 0.015 265); transition: transform 0.18s, border-color 0.18s;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: oklch(0.28 0.03 275); display: flex; align-items: center; justify-content: center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(0.78 0.13 275)" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+            </div>
+            <div>
+              <div style="font-weight: 600; font-size: 16px; margin-bottom: 6px;">{{ guide.title }}</div>
+              <div style="font-size: 13px; color: oklch(0.68 0.01 265); line-height: 1.5;">{{ guide.description }}</div>
+            </div>
+            <div style="margin-top: auto; display: flex; justify-content: flex-end;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.72 0.13 275)" stroke-width="2"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+            </div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </main>
+
+  <footer style="border-top: 1px solid oklch(0.28 0.015 265); padding: 48px 48px 32px; display: flex; flex-direction: column; gap: 36px; font-size: 13px; color: oklch(0.6 0.01 265);">
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 28px; max-width: 1080px; margin: 0 auto; width: 100%;">
+      <div>
+        <a href="./Firestick Setup.dc.html" style="display: block; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; color: oklch(0.9 0.005 265); margin-bottom: 14px;">Setup</a>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="./Before You Begin.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Before You Begin</a>
+          <a href="./Setting Up Your Firestick.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Setting Up Your Firestick</a>
+          <a href="./Installing Downloader.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Installing Downloader</a>
+          <a href="./Enabling Developer Options.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Enabling Developer Options</a>
+        </div>
+      </div>
+      <div>
+        <a href="./App Installation Guides.dc.html" style="display: block; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; color: oklch(0.9 0.005 265); margin-bottom: 14px;">Installation</a>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="./Install AIO TV.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Install AIO TV</a>
+          <a href="./Install AIO TV Pro.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Install AIO TV Pro</a>
+          <a href="./Install AIO Stremio.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Install AIO Stremio</a>
+          <a href="./Installing VPN.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Installing VPN</a>
+          <a href="./Install Android App.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Install Android App</a>
+          <a href="./Install Apple App.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Install Apple App</a>
+        </div>
+      </div>
+      <div>
+        <a href="./VPN Guides.dc.html" style="display: block; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; color: oklch(0.9 0.005 265); margin-bottom: 14px;">VPN</a>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+
+        </div>
+      </div>
+      <div>
+        <a href="./Rewards.dc.html" style="display: block; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; color: oklch(0.9 0.005 265); margin-bottom: 14px;">Rewards</a>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="./Packages.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Packages</a>
+        </div>
+      </div>
+      <div>
+        <a href="./Troubleshooting & Fixes.dc.html" style="display: block; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; color: oklch(0.9 0.005 265); margin-bottom: 14px;">Troubleshoot & FAQs</a>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="./Account Expired.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Account Expired</a>
+          <a href="./VLC Playback Error.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">VLC Playback Error</a>
+          <a href="./TV Guide EPG not Downloaded.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">TV Guide (EPG) not Downloaded</a>
+          <a href="./Force Stop Clear Cache.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Force Stop & Clear Cache</a>
+          <a href="./Buffering Issues.dc.html" style="text-decoration: none; font-size: 13px; color: oklch(0.68 0.01 265);">Buffering Issues</a>
+        </div>
+      </div>
+    </div>
+    <span style="text-align: center;">© 2026 AIO Media</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { isMobile: typeof window !== 'undefined' && window.innerWidth < 700 };
+  componentDidMount() {
+    this.onResize = () => this.setState({ isMobile: window.innerWidth < 700 });
+    window.addEventListener('resize', this.onResize);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+  }
+  renderVals() {
+    return {
+      gridStyle: { display: 'grid', gridTemplateColumns: this.state.isMobile ? '1fr' : 'repeat(4, 1fr)', gap: '20px' },
+      guides: [
+        { title: 'Before You Begin: What You Need', description: 'A quick checklist and key info to make Firestick setup smooth.', url: './Before You Begin.dc.html' },
+        { title: 'Setting Up Your Firestick', description: 'Connect your Firestick to your TV, pair the remote, join Wi‑Fi, and complete the on-screen setup.', url: './Setting Up Your Firestick.dc.html' },
+        { title: 'Installing Downloader', description: 'Install the Downloader app from the Amazon Appstore so you can add third-party apps to your Firestick.', url: './Installing Downloader.dc.html' },
+        { title: 'Enabling Developer Options', description: 'Reveal and enable Developer Options so you can install apps from outside the Amazon Appstore.', url: './Enabling Developer Options.dc.html' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
