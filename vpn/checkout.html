@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#6d28d9"/><text x="50" y="63" font-size="42" fill="white" text-anchor="middle" font-family="sans-serif" font-weight="700">A</text></svg></template>
+<helmet>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../assets/aio-favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #F7F6FC; }
+  a { color: #6366F1; }
+  a:hover { color: #A855F7; }
+  input:focus { outline: 2px solid #6366F1; outline-offset: 1px; }
+</style>
+</helmet>
+
+<div style="font-family: 'Inter', Helvetica, Arial, sans-serif; background: #F7F6FC; min-height: 100vh; color: #12121A;">
+  <dc-import name="NavBar" active="vpn" hint-size="100%,76px"></dc-import>
+
+  <main style="max-width: 1080px; margin: 0 auto; padding: 48px 24px 88px;">
+    <div style="font-size: 13px; color: #6E6A80; margin-bottom: 20px;">
+      <a href="../index.html" style="text-decoration: none;">All Categories</a> / <a href="./vpn-guides.html" style="text-decoration: none;">VPN</a> / Checkout
+    </div>
+
+    <h1 style="font-family: 'Sora', sans-serif; font-size: 32px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 40px;">Checkout</h1>
+
+    <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: start;">
+      <div>
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; margin: 0 0 16px;">1. Choose your plan</h2>
+        <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px;">
+          <sc-for list="{{ plans }}" as="plan" hint-placeholder-count="3">
+            <div onClick="{{ plan.onSelect }}" style="{{ plan.cardStyle }}">
+              <div style="display: flex; align-items: center; gap: 14px;">
+                <div style="{{ plan.radioStyle }}"></div>
+                <div>
+                  <div style="font-weight: 600; font-size: 15px;">{{ plan.label }}</div>
+                  <div style="font-size: 13px; color: #4A4A5A;">{{ plan.subtext }}</div>
+                </div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px;">{{ plan.price }}</div>
+                <sc-if value="{{ plan.badge }}" hint-placeholder-val="{{ false }}">
+                  <div style="font-size: 11px; font-weight: 700; color: #A855F7; text-transform: uppercase; letter-spacing: 0.04em;">{{ plan.badge }}</div>
+                </sc-if>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; margin: 0 0 16px;">2. Contact &amp; payment details</h2>
+        <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 8px;">
+          <div>
+            <label style="display: block; font-size: 13px; color: #4A4A5A; margin-bottom: 6px;">Email</label>
+            <input type="email" placeholder="you@example.com" style="width: 100%; box-sizing: border-box; padding: 12px 14px; border-radius: 10px; background: #FFFFFF; border: 1px solid #E4E1F0; color: inherit; font-size: 14px; font-family: inherit;">
+          </div>
+          <div>
+            <label style="display: block; font-size: 13px; color: #4A4A5A; margin-bottom: 6px;">Desired username</label>
+            <input type="text" placeholder="e.g. johnsmith" style="width: 100%; box-sizing: border-box; padding: 12px 14px; border-radius: 10px; background: #FFFFFF; border: 1px solid #E4E1F0; color: inherit; font-size: 14px; font-family: inherit;">
+            <p style="font-size: 12px; color: #6E6A80; margin: 6px 0 0;">If this username is already taken, we'll create a close variant for you.</p>
+          </div>
+          <div>
+            <label style="display: block; font-size: 13px; color: #4A4A5A; margin-bottom: 6px;">Card number</label>
+            <input type="text" placeholder="1234 1234 1234 1234" style="width: 100%; box-sizing: border-box; padding: 12px 14px; border-radius: 10px; background: #FFFFFF; border: 1px solid #E4E1F0; color: inherit; font-size: 14px; font-family: inherit;">
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div>
+              <label style="display: block; font-size: 13px; color: #4A4A5A; margin-bottom: 6px;">Expiry</label>
+              <input type="text" placeholder="MM / YY" style="width: 100%; box-sizing: border-box; padding: 12px 14px; border-radius: 10px; background: #FFFFFF; border: 1px solid #E4E1F0; color: inherit; font-size: 14px; font-family: inherit;">
+            </div>
+            <div>
+              <label style="display: block; font-size: 13px; color: #4A4A5A; margin-bottom: 6px;">CVC</label>
+              <input type="text" placeholder="123" style="width: 100%; box-sizing: border-box; padding: 12px 14px; border-radius: 10px; background: #FFFFFF; border: 1px solid #E4E1F0; color: inherit; font-size: 14px; font-family: inherit;">
+            </div>
+          </div>
+          <div>
+            <label style="display: block; font-size: 13px; color: #4A4A5A; margin-bottom: 6px;">Name on card</label>
+            <input type="text" placeholder="Full name" style="width: 100%; box-sizing: border-box; padding: 12px 14px; border-radius: 10px; background: #FFFFFF; border: 1px solid #E4E1F0; color: inherit; font-size: 14px; font-family: inherit;">
+          </div>
+        </div>
+      </div>
+
+      <div style="position: sticky; top: 96px; padding: 36px 28px 28px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E4E1F0;">
+        <div style="font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #6E6A80; margin: 0 0 16px;">Order Summary</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <span style="font-size: 14px; color: #4A4A5A;">{{ selectedPlan.label }}</span>
+          <span style="font-size: 14px; font-weight: 600;">{{ selectedPlan.price }}</span>
+        </div>
+        <div style="border-top: 1px solid #E4E1F0; margin: 16px 0; padding-top: 16px; display: flex; justify-content: space-between; align-items: baseline;">
+          <span style="font-size: 15px; font-weight: 600;">Total due today</span>
+          <span style="font-family: 'Sora', sans-serif; font-size: 22px; font-weight: 700;">{{ selectedPlan.price }}</span>
+        </div>
+        <p style="font-size: 12px; color: #6E6A80; margin: 0 0 20px; line-height: 1.6;">Pricing shown is a placeholder pending confirmation.</p>
+        <button style="width: 100%; padding: 14px; border-radius: 10px; background: #6366F1; color: white; font-weight: 600; font-size: 15px; border: none; cursor: pointer;">Pay Now</button>
+        <p style="font-size: 11px; color: #6E6A80; text-align: center; margin: 14px 0 0;">🔒 Secure checkout</p>
+      </div>
+    </div>
+  </main>
+
+  <footer style="border-top: 1px solid #E4E1F0; padding: 48px 48px 32px; display: flex; flex-direction: column; gap: 36px; font-size: 13px; color: #6E6A80;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 28px; max-width: 1080px; margin: 0 auto; width: 100%;">
+      <div>
+        <a href="../setup/firestick-setup.html" style="display: block; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; color: #12121A; margin-bottom: 14px;">Setup</a>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="../setup/before-you-begin.html" style="text-decoration: none; font-size: 13px; color: #4A4A5A;">Before You Begin</a>
+          <a href="../setup/setting-up-your-firestick.html" style="text-decoration: none; font-size: 13px; color: #4A4A5A;">Setting Up Your Firestick</a>
+          <a href="../setup/installing-downloader.html" style="text-decoration: none; font-size: 13px; color: #4A4A5A;">Installing Downloader</a>
+          <a href="../setup/enabling-developer-options.html" style="text-decoration: none; font-size: 13px; color: #4A4A5A;">Enabling Developer Options</a>
+        </div>
+      </div>
+      <div>
+        <a href="../installation/app-installation-guides.html" style="display: block; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; color: #12121A; margin-bottom: 14px;">Installation</a>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="../installation/install-aio-tv.html" style="text-decoration: none; font-size: 13px; color: #4A4A5A;">Install AIO TV</a>
+          <a href="../installation/install-aio-tv-pro.html" style="text-decoration: none; font-size: 13px; color: #4A4A5A;">Install AIO TV Pro</a>
+          <a href="../installation/install-aio-stremio.html" style="text-decoration: none; font-size: 13px; color: #4A4A5A;">Install AIO Stremio</a>
+          <a href="../installation/installing-vpn.html" style="text-decoration: none; font-size: 13px; color: #4A4A5A;">Installing VPN</a>
+          <a href="../installation/install-android-app.html" style="text-decoration: none; font-size: 13px; color: #4A4A5A;">Install TV Android</a>
+          <a href="../installation/install-apple-app.html" style="text-decoration: none; font-size: 13px; color: #4A4A5A;">Install TV iOS</a>
+          <a href="../installation/install-stremio-android.html" style="text-decoration: none; font-size: 13px; color: #4A4A5A;">Install Stremio Android</a>
+          <a href="../installation/install-stremio-ios.html" style="text-decoration: none; font-size: 13px; color: #4A4A5A;">Install Stremio iOS</a>
+        </div>
+      </div>
+      <div>
+        <a href="./vpn-guides.html" style="display: block; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; color: #12121A; margin-bottom: 14px;">VPN</a>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+        </div>
+      </div>
+      <div>
+        <a href="../rewards/rewards.html" style="display: block; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; color: #12121A; margin-bottom: 14px;">Rewards</a>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="../rewards/packages.html" style="text-decoration: none; font-size: 13px; color: #4A4A5A;">Packages</a>
+        </div>
+      </div>
+      <div>
+        <a href="../troubleshoot/troubleshooting-and-fixes.html" style="display: block; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; color: #12121A; margin-bottom: 14px;">Troubleshoot & FAQs</a>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="../troubleshoot/account-expired.html" style="text-decoration: none; font-size: 13px; color: #4A4A5A;">Account Expired</a>
+          <a href="../troubleshoot/vlc-playback-error.html" style="text-decoration: none; font-size: 13px; color: #4A4A5A;">VLC Playback Error</a>
+          <a href="../troubleshoot/tv-guide-epg-not-downloaded.html" style="text-decoration: none; font-size: 13px; color: #4A4A5A;">TV Guide (EPG) not Downloaded</a>
+          <a href="../troubleshoot/force-stop-clear-cache.html" style="text-decoration: none; font-size: 13px; color: #4A4A5A;">Force Stop & Clear Cache</a>
+          <a href="../troubleshoot/buffering-issues.html" style="text-decoration: none; font-size: 13px; color: #4A4A5A;">Buffering Issues</a>
+        </div>
+      </div>
+    </div>
+    <span style="text-align: center;">© 2026 AIO Media</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { selected: 'annual' };
+
+  renderVals() {
+    const selected = this.state.selected;
+    const baseCard = {
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 20px',
+      borderRadius: '14px', background: '#161B26', border: '1px solid #242B3A',
+      cursor: 'pointer', transition: 'border-color 0.15s'
+    };
+    const selectedCard = { ...baseCard, border: '1px solid #6366F1', background: '#6366F1' };
+    const radioBase = { width: '18px', height: '18px', borderRadius: '50%', border: '2px solid #6B7280', flexShrink: 0 };
+    const radioSelected = { ...radioBase, border: '5px solid #6366F1' };
+
+    const defs = [
+      { key: 'monthly', label: 'Monthly', subtext: 'Billed every month', price: '$X.XX', badge: null },
+      { key: 'annual', label: 'Annual', subtext: 'Billed once a year', price: '£35.00', badge: 'Best value' },
+      { key: 'biennial', label: '2 Years', subtext: 'Billed every 2 years', price: '$X.XX', badge: 'Lowest price' },
+    ];
+
+    const plans = defs.map(d => ({
+      ...d,
+      cardStyle: d.key === selected ? selectedCard : baseCard,
+      radioStyle: d.key === selected ? radioSelected : radioBase,
+      onSelect: () => this.setState({ selected: d.key }),
+    }));
+
+    return {
+      plans,
+      selectedPlan: plans.find(p => p.key === selected),
+    };
+  }
+}
+</script>
+</body>
+</html>
