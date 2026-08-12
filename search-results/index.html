@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#6d28d9"/><text x="50" y="63" font-size="42" fill="white" text-anchor="middle" font-family="sans-serif" font-weight="700">A</text></svg></template>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #F7F6FC; }
+    a { color: #6366F1; }
+    a:hover { color: #4F46E5; }
+  </style>
+</helmet>
+<div style="min-height: 100vh; background: #F7F6FC; font-family: 'Inter', Helvetica, Arial, sans-serif; color: #12121A;">
+  <dc-import name="NavBar" active="home" hint-size="100%,76px"></dc-import>
+  <div style="max-width: 780px; margin: 0 auto; padding: 56px 24px 96px;">
+    <h1 style="font-family: 'Sora', sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 6px;">Search results</h1>
+    <p style="font-size: 14px; color: #4A4A5A; margin: 0 0 28px;">{{ summary }}</p>
+    <div style="display: flex; align-items: center; gap: 12px; background: #FFFFFF; border: 1px solid #DCD8EC; border-radius: 12px; padding: 14px 18px; box-shadow: 0 12px 32px rgba(24,20,50,0.10); margin-bottom: 32px;">
+      <input type="text" placeholder="Search guides" value="{{ query }}" onChange="{{ onQuery }}" onKeyDown="{{ onKeyDown }}" style="flex: 1; background: transparent; border: none; outline: none; color: #12121A; font-size: 15px; font-family: 'Inter', Helvetica, Arial, sans-serif;">
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <sc-for list="{{ results }}" as="hit" hint-placeholder-count="4">
+        <a href="{{ hit.url }}" style="display: flex; flex-direction: column; gap: 5px; padding: 18px 20px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E4E1F0; text-decoration: none; color: #12121A;">
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: #6E6A80;">{{ hit.section }}</span>
+          <span style="font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600;">{{ hit.title }}</span>
+        </a>
+      </sc-for>
+    </div>
+    <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+      <div style="padding: 28px 24px; border-radius: 12px; background: #FFFFFF; border: 1px solid #E4E1F0;">
+        <p style="margin: 0 0 8px; font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600;">Nothing matched that search.</p>
+        <p style="margin: 0 0 20px; font-size: 14px; line-height: 1.6; color: #4A4A5A;">Try a shorter phrase, or browse every guide below.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <sc-for list="{{ allPages }}" as="page" hint-placeholder-count="6">
+            <a href="{{ page.url }}" style="padding: 8px 14px; border-radius: 999px; background: #EFEDF8; border: 1px solid #E4E1F0; text-decoration: none; color: #12121A; font-size: 13px; font-weight: 500;">{{ page.title }}</a>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { query: '' };
+
+  componentDidMount() {
+    const m = /[?&]q=([^&]*)/.exec(window.location.search || '');
+    if (m) this.setState({ query: decodeURIComponent(m[1].replace(/\+/g, ' ')) });
+  }
+
+  pages() {
+    const S = '../';
+    return [
+      { title: 'Setup', section: 'Setup', url: S + 'setup/firestick-setup.html', kw: 'setup start begin firestick' },
+      { title: 'Before You Begin: What You Need', section: 'Setup', url: S + 'setup/before-you-begin.html', kw: 'requirements need start prepare' },
+      { title: 'Setting Up Your Firestick', section: 'Setup', url: S + 'setup/setting-up-your-firestick.html', kw: 'firestick fire stick amazon wifi network setup' },
+      { title: 'Installing Downloader', section: 'Setup', url: S + 'setup/installing-downloader.html', kw: 'downloader sideload apk install app store' },
+      { title: 'Enabling Developer Options', section: 'Setup', url: S + 'setup/enabling-developer-options.html', kw: 'developer options unknown sources adb debugging allow' },
+      { title: 'App Installation Guides', section: 'Installation', url: S + 'installation/app-installation-guides.html', kw: 'install installation apps guides' },
+      { title: 'Install AIO TV', section: 'Installation', url: S + 'installation/install-aio-tv.html', kw: 'aio tv install app firestick' },
+      { title: 'Install AIO TV Pro', section: 'Installation', url: S + 'installation/install-aio-tv-pro.html', kw: 'aio tv pro install premium app' },
+      { title: 'Install AIO Stremio', section: 'Installation', url: S + 'installation/install-aio-stremio.html', kw: 'stremio install addon' },
+      { title: 'Install TV Android', section: 'Installation', url: S + 'installation/install-android-app.html', kw: 'android phone tablet mobile install' },
+      { title: 'Install TV iOS', section: 'Installation', url: S + 'installation/install-apple-app.html', kw: 'ios iphone ipad apple mobile install' },
+      { title: 'Install Stremio Android', section: 'Installation', url: S + 'installation/install-stremio-android.html', kw: 'stremio android mobile install' },
+      { title: 'Install Stremio iOS', section: 'Installation', url: S + 'installation/install-stremio-ios.html', kw: 'stremio ios iphone ipad install' },
+      { title: 'Installing VPN', section: 'Installation', url: S + 'installation/installing-vpn.html', kw: 'vpn install privacy secure connection' },
+      { title: 'VPN Guides', section: 'VPN', url: S + 'vpn/vpn-guides.html', kw: 'vpn privacy secure guides' },
+      { title: 'Rewards', section: 'Rewards', url: S + 'rewards/rewards.html', kw: 'rewards points referral loyalty' },
+      { title: 'Packages', section: 'Rewards', url: S + 'rewards/packages.html', kw: 'packages pricing plans subscription buy cost price' },
+      { title: 'Troubleshoot & FAQs', section: 'Troubleshoot', url: S + 'troubleshoot/troubleshooting-and-fixes.html', kw: 'troubleshoot help faq problem issue fix broken not working' },
+      { title: 'Account Expired', section: 'Troubleshoot', url: S + 'troubleshoot/account-expired.html', kw: 'expired subscription renew payment login locked cannot sign in' },
+      { title: 'VLC Playback Error', section: 'Troubleshoot', url: S + 'troubleshoot/vlc-playback-error.html', kw: 'vlc playback error player black screen no picture wont play will not play' },
+      { title: 'TV Guide (EPG) not Downloaded', section: 'Troubleshoot', url: S + 'troubleshoot/tv-guide-epg-not-downloaded.html', kw: 'epg tv guide listings missing schedule blank no guide' },
+      { title: 'Force Stop & Clear Cache', section: 'Troubleshoot', url: S + 'troubleshoot/force-stop-clear-cache.html', kw: 'cache clear reset force stop crash crashing restart frozen stuck' },
+      { title: 'Buffering Issues', section: 'Troubleshoot', url: S + 'troubleshoot/buffering-issues.html', kw: 'buffering lag freeze freezing spinning stutter slow loading wont load will not load not loading skipping keeps pausing' },
+    ];
+  }
+
+  score(page, tokens) {
+    const hay = (page.title + ' ' + page.section + ' ' + page.kw).toLowerCase();
+    let s = 0;
+    tokens.forEach(t => {
+      if (!t) return;
+      if (hay.indexOf(t) !== -1) s += t.length >= 4 ? 2 : 1;
+    });
+    return s;
+  }
+
+  renderVals() {
+    const raw = this.state.query || '';
+    const stop = { the: 1, a: 1, an: 1, my: 1, is: 1, it: 1, to: 1, of: 1, on: 1, in: 1, and: 1, for: 1, i: 1 };
+    const tokens = raw.toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter(t => t && !stop[t]);
+    const scored = this.pages().map(p => ({ p: p, s: this.score(p, tokens) })).filter(x => x.s > 0).sort((a, b) => b.s - a.s);
+    const results = tokens.length ? scored.map(x => x.p).slice(0, 10) : [];
+    const go = () => {
+      const q = (this.state.query || '').trim();
+      if (q) window.location.href = './?q=' + encodeURIComponent(q);
+    };
+    return {
+      query: raw,
+      results: results,
+      allPages: this.pages(),
+      empty: tokens.length > 0 && results.length === 0,
+      summary: tokens.length === 0 ? 'Type a search above.' : (results.length + (results.length === 1 ? ' guide' : ' guides') + ' for "' + raw.trim() + '"'),
+      onQuery: (e) => this.setState({ query: e.target.value }),
+      onKeyDown: (e) => { if (e.key === 'Enter') { e.preventDefault(); go(); } },
+    };
+  }
+}
+</script>
+</body>
+</html>
